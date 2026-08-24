@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday BesTEA! 💖</title>
+    <title>HAPPIEST BIRTHDAY BESTEA! 💖</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Indie+Flower&family=Courier+Prime&display=swap" rel="stylesheet">
     <style>
         * {
@@ -70,7 +70,7 @@
             color: #00ffcc;
             border: 1px solid #00ffcc;
             padding: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             cursor: pointer;
             font-family: 'Courier Prime', monospace;
             text-align: left;
@@ -177,51 +177,6 @@
             border: 1px dashed #ffb6c1;
         }
 
-        /* --- SOUNDBOARD STYLES --- */
-        .soundboard-section {
-            background: #fff;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            max-width: 600px;
-            width: 100%;
-            margin-bottom: 30px;
-            border: 2px dashed #ffb6c1;
-        }
-
-        .soundboard-section h3 {
-            font-family: 'Indie Flower', cursive;
-            font-size: 1.8rem;
-            color: #ff6b8b;
-            margin-bottom: 15px;
-        }
-
-        .sound-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .sound-btn {
-            background: #ff6b8b;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: 'Quicksand', sans-serif;
-            font-weight: bold;
-            transition: 0.2s;
-            box-shadow: 0 4px 10px rgba(255, 107, 139, 0.3);
-        }
-
-        .sound-btn:hover {
-            background: #ff476f;
-            transform: translateY(-2px);
-        }
-
         .footer-note {
             background: #fff;
             padding: 25px 35px;
@@ -250,11 +205,20 @@
     <!-- FAKE TERMINAL VERIFICATION POPUP -->
     <div id="terminal-overlay">
         <div class="terminal-box">
-            <h2>> SYSTEM SECURITY CHECK</h2>
-            <p>Identity confirmation required. Are you actually qualified to view this confidential birthday data?</p>
-            <button class="terminal-btn" onclick="passTerminal()">[1] Yes, I play guitar and lift heavy stuff.</button>
-            <button class="terminal-btn" onclick="passTerminal()">[2] No, but I brought food.</button>
-            <button class="terminal-btn" onclick="passTerminal()">[3] Bypass security (I am the birthday boy).</button>
+            <h2>> EGO & FAVORITISM CHECK</h2>
+            <p>Multiple choice verification: Which friend do you love the most?</p>
+            
+            <!-- Wrong options -->
+            <button class="terminal-btn" onclick="wrongAnswer()">a) Anant</button>
+            <button class="terminal-btn" onclick="wrongAnswer()">b) Shubhashish</button>
+            <button class="terminal-btn" onclick="wrongAnswer()">c) Naman Sahu</button>
+            <button class="terminal-btn" onclick="wrongAnswer()">d) Naman Mandal</button>
+            <button class="terminal-btn" onclick="wrongAnswer()">e) Agastya</button>
+            
+            <!-- Correct option -->
+            <button class="terminal-btn" onclick="passTerminal()">f) Vijayashree OBVIOUSLY</button>
+            
+            <p id="error-msg" style="color: #ff0055; margin-top: 10px; display: none;">ACCESS DENIED: Extremely incorrect. Try again before I lock you out forever.</p>
         </div>
     </div>
 
@@ -267,8 +231,8 @@
         <div class="doodle" style="bottom: 10%; right: 10%; animation-delay: 1.5s;">🎸</div>
 
         <div class="header">
-            <h1>Happy Birthday to My Favorite Human! 🎉</h1>
-            <p>A little digital scrapbook of our chaotic moments together.</p>
+            <h1>Happy Birthday to My Favorite Hooman! 🎉</h1>
+            <p>A little digital scrapbook of our indelible moments together.</p>
         </div>
 
         <div class="scrapbook-container">
@@ -276,14 +240,14 @@
             <div class="polaroid">
                 <div class="tape"></div>
                 <img src="your-photo1.jpg" alt="Memory 1">
-                <div class="caption">The guitarist in his natural habitat 🎸</div>
+                <div class="caption">💗</div>
             </div>
 
             <!-- Photo 2 -->
             <div class="polaroid">
                 <div class="tape"></div>
                 <img src="your-photo2.jpg" alt="Memory 2">
-                <div class="caption">Gym rat behavior 💪</div>
+                <div class="caption">💕</div>
             </div>
 
             <!-- Video Memory -->
@@ -293,41 +257,26 @@
                     <source src="your-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <div class="caption">Unhinged footage we can never delete 🎥</div>
-            </div>
-        </div>
-
-        <!-- SOUNDBOARD SECTION -->
-        <div class="soundboard-section">
-            <h3>🎵 Emergency Soundboard</h3>
-            <p style="font-size: 0.9rem; color: #8c7882; margin-bottom: 15px;">Click to trigger panic audio effects:</p>
-            <div class="sound-buttons">
-                <button class="sound-btn" onclick="playSound('audio1.mp3')">🎸 Air Guitar Riff</button>
-                <button class="sound-btn" onclick="playSound('audio2.mp3')">🎤 Bad Singing</button>
-                <button class="sound-btn" onclick="playSound('audio3.mp3')">🚨 Roasting Alert</button>
+                <div class="caption">😋</div>
             </div>
         </div>
 
         <div class="footer-note">
-            <h2>You're pretty cool, I guess.</h2>
-            <p>Thanks for being the best partner-in-crime for food, late-night talks, and endless nonsense. Hope your day is as awesome as your guitar solos. Happy Birthday! 🎂✨</p>
+            <h2>I adore you, I guess.</h2>
+            <p>Thank you sm for being with me through my ups and downs. i genuinely can't describe your importance in my life (It's ineffable) Happy Birthday Once Again! 🎂✨</p>
         </div>
 
     </div>
 
     <script>
+        function wrongAnswer() {
+            document.getElementById('error-msg').style.display = 'block';
+        }
+
         function passTerminal() {
             // Hide terminal and show the actual scrapbook website
             document.getElementById('terminal-overlay').style.display = 'none';
             document.getElementById('mainContent').style.display = 'flex';
-        }
-
-        function playSound(filename) {
-            // To use audio, just put audio1.mp3, audio2.mp3, etc. in your folder!
-            const audio = new Audio(filename);
-            audio.play().catch(error => {
-                alert("Audio file missing! Drop '" + filename + "' into your folder to make this work.");
-            });
         }
     </script>
 
