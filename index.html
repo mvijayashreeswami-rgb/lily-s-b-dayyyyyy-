@@ -23,6 +23,7 @@
             min-height: 100vh;
             padding: 30px 15px;
             overflow-x: hidden;
+            position: relative;
         }
 
         /* --- TERMINAL OVERLAY --- */
@@ -273,6 +274,7 @@
             text-align: center;
             max-width: 600px;
             border: 2px dashed #ffb6c1;
+            margin-bottom: 30px;
         }
 
         .footer-note h2 {
@@ -285,6 +287,23 @@
         .footer-note p {
             line-height: 1.6;
             font-size: 1rem;
+        }
+
+        /* --- RUNAWAY MOBILE BUTTON --- */
+        #runawayBtn {
+            background: #ff6b8b;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.3);
+            transition: transform 0.2s ease;
+            margin-bottom: 40px;
+            position: relative;
         }
     </style>
 </head>
@@ -349,8 +368,7 @@
                 <p>
                     MAY GOD BLESS YOU WITH EVERYTHING YOU NEED ON THIS BIRTHDAY OF YOURS. MAY GOD ILLUMNATE YOUR PATH AND GUIDE YOU IN ALL POSSIBLE WAYS. MAY YOUR LIFE'S JOURNEY ALWAYS LEAD YOU TO WONDERFUL DISCOVERIES. ALWAYS STAY HAPPY AND KEEP SLAYING. MAY SUCCESS KISS THE FLOOR YOU WALK ON. 
                     <br><br>
-                    
-                        I feel like things aren't quite the same now and that you've got a new circle taking up your time. I know, you're actually so busy nowadays, but regardless of where things stand or who's around you today, I wanted you to have this reminder of what we had. Thank you sooooooo much for always helping me, never leaving me alone in my difficult phases, adding colours to my life, making me believe in friendship, and for so many things. You showed up for me when nobody else did, and no amount of distance or new routines can ever change what you mean to the foundation of who I am today. I'll never forget your favour. Looking back at everything we've shared, I am just so overwhelmingly grateful that our paths crossed. Even if things look a little different now, the memories we built and the bond we share will always be unforgettable for me. No matter how many friends I'll make in the future, I assure you that our friendship will forever be my favourite. I know, I've hurt you so many times and I feel a profound sense of grief for that, and feel guilty too, I'm genuinely so sorry if I ever made you feel bad (I know, I did). I promise, I'll always be there for you whenever you need me. Please don't ever leave me, your importance in my life in ineffable. I love you so much, besTEA!
+                    I feel like things aren't quite the same now and that you've got a new circle taking up your time. I know, you're actually so busy nowadays, but regardless of where things stand or who's around you today, I wanted you to have this reminder of what we had. Thank you sooooooo much for always helping me, never leaving me alone in my difficult phases, adding colours to my life, making me believe in friendship, and for so many things. You showed up for me when nobody else did, and no amount of distance or new routines can ever change what you mean to the foundation of who I am today. I'll never forget your favour. Looking back at everything we've shared, I am just so overwhelmingly grateful that our paths crossed. Even if things look a little different now, the memories we built and the bond we share will always be unforgettable for me. No matter how many friends I'll make in the future, I assure you that our friendship will forever be my favourite. I know, I've hurt you so many times and I feel a profound sense of grief for that, and feel guilty too, I'm genuinely so sorry if I ever made you feel bad (I know, I did). I promise, I'll always be there for you whenever you need me. Please don't ever leave me, your importance in my life in ineffable. I love you so much, besTEA!
                 </p>
                 <button class="close-card-btn" onclick="closeCard()">Close Letter</button>
             </div>
@@ -360,6 +378,8 @@
             <h2>I adore you so much, I guess.</h2>
             <p>Thanks for surviving all our chaotic moments together. </p>
         </div>
+
+        <button id="runawayBtn" onclick="catchButton()">Tap to admit I'm your favorite person 🏃‍♂️💨</button>
 
     </div>
 
@@ -389,6 +409,34 @@
 
         function closeCard() {
             document.getElementById('cardModal').style.display = 'none';
+        }
+
+        // RUNAWAY MOBILE BUTTON LOGIC
+        let attempts = 0;
+        function catchButton() {
+            const btn = document.getElementById('runawayBtn');
+            attempts++;
+
+            if (attempts < 4) {
+                // Teleport randomly across the screen bounds
+                const randomX = (Math.random() - 0.5) * 200;
+                const randomY = (Math.random() - 0.5) * 150;
+                btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+                
+                const phrases = [
+                    "Nice try, slow poke! 🏃‍♂️",
+                    "You'll have to tap faster than that! 💅",
+                    "Is that all your thumb's got? 😂"
+                ];
+                btn.innerText = phrases[Math.floor(Math.random() * phrases.length)];
+            } else {
+                // Caught!
+                btn.style.transform = `translate(0px, 0px)`;
+                btn.style.background = '#00ffcc';
+                btn.style.color = '#0b0f19';
+                btn.innerText = "Fine, you caught it. You're the favorite! 🎉";
+                btn.onclick = null; // Disable further running
+            }
         }
     </script>
 
