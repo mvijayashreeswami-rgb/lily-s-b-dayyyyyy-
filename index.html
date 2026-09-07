@@ -151,7 +151,7 @@
             z-index: 10;
         }
 
-        .polaroid img, .polaroid video {
+        .polaroid img {
             width: 100%;
             height: 250px;
             object-fit: cover;
@@ -177,6 +177,90 @@
             border: 1px dashed #ffb6c1;
         }
 
+        /* --- DIGITAL ENVELOPE CARD STYLES --- */
+        .card-wrapper {
+            margin-bottom: 40px;
+        }
+
+        .envelope {
+            width: 320px;
+            height: 220px;
+            background: #f7d6df;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 107, 139, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.4s ease;
+            border: 2px dashed #ffb6c1;
+        }
+
+        .envelope:hover {
+            transform: scale(1.02);
+        }
+
+        .envelope-text {
+            font-family: 'Indie Flower', cursive;
+            font-size: 1.5rem;
+            color: #ff6b8b;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .card-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 15, 25, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card-content {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            position: relative;
+            border: 2px solid #ffb6c1;
+        }
+
+        .card-content h3 {
+            font-family: 'Indie Flower', cursive;
+            font-size: 2rem;
+            color: #ff6b8b;
+            margin-bottom: 15px;
+        }
+
+        .card-content p {
+            line-height: 1.8;
+            font-size: 1rem;
+            color: #5c4b51;
+            margin-bottom: 25px;
+        }
+
+        .close-card-btn {
+            background: #ff6b8b;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* --- FOOTER NOTE STYLES --- */
         .footer-note {
             background: #fff;
             padding: 25px 35px;
@@ -202,23 +286,21 @@
 </head>
 <body>
 
-    <!-- FAKE TERMINAL VERIFICATION POPUP -->
-   <div id="terminal-overlay">
-    <div class="terminal-box">
-        <h2>> FRIENDSHIP HIERARCHY AUDIT</h2>
-        <p>Error: Friendship hierarchy corrupted. Where does your 'new friend/best friend' rank compared to the person who actually built you a website?</p>
-        
-        <button class="terminal-btn" onclick="wrongAnswer()">a) Level 1: Temporary side character</button>
-        <button class="terminal-btn" onclick="wrongAnswer()">b) Level 2: Trial phase</button>
-        <button class="terminal-btn" onclick="wrongAnswer()">c) Level 3: I decline to answer to avoid getting cancelled</button>
-        
-        <button class="terminal-btn" onclick="passTerminal()">d) Nobody replaces Vijayashree, let me in</button>
-        
-        <p id="error-msg" style="color: #ff0055; margin-top: 10px; display: none;">ACCESS DENIED: Trying to dodge the question? Try again, coward.</p>
+    <div id="terminal-overlay">
+        <div class="terminal-box">
+            <h2>> FRIENDSHIP HIERARCHY AUDIT</h2>
+            <p>Error: Friendship hierarchy corrupted. Where does your 'new friend/best friend' rank compared to the person who actually built you a website?</p>
+            
+            <button class="terminal-btn" onclick="wrongAnswer()">a) Level 1: Temporary side character</button>
+            <button class="terminal-btn" onclick="wrongAnswer()">b) Level 2: Trial phase</button>
+            <button class="terminal-btn" onclick="wrongAnswer()">c) Level 3: I decline to answer to avoid getting cancelled</button>
+            
+            <button class="terminal-btn" onclick="passTerminal()">d) Nobody replaces Vijayashree, let me in</button>
+            
+            <p id="error-msg" style="color: #ff0055; margin-top: 10px; display: none;">ACCESS DENIED: Trying to dodge the question? Try again, coward.</p>
+        </div>
     </div>
-</div>
 
-    <!-- MAIN WEBSITE CONTENT -->
     <div class="main-content" id="mainContent">
 
         <div class="doodle" style="top: 5%; left: 10%;">🌸</div>
@@ -232,28 +314,43 @@
         </div>
 
         <div class="scrapbook-container">
-            <!-- Photo 1 -->
             <div class="polaroid">
                 <div class="tape"></div>
                 <img src="photo1.jpg" alt="Memory 1">
                 <div class="caption">💗</div>
             </div>
 
-            <!-- Photo 2 -->
             <div class="polaroid">
                 <div class="tape"></div>
                 <img src="photo2.jpg" alt="Memory 2">
                 <div class="caption">💕</div>
             </div>
 
-           <div class="polaroid">
+            <div class="polaroid">
                 <div class="tape"></div>
                 <img src="photo3.jpg" alt="Memory 3">
                 <div class="caption">😋</div>
             </div>
-            
+        </div>
+
+        <div class="card-wrapper">
+            <div class="envelope" onclick="openCard()">
+                <div class="envelope-text">💌 An unread letter. Click to open.</div>
+            </div>
+        </div>
+
+        <div class="card-modal" id="cardModal">
+            <div class="card-content">
+                <h3>For You, on Your Birthday</h3>
+                <p>
+                    It’s weird looking back at how close we used to be, knowing that things aren't quite the same now and that you've got a new circle taking up your time. But regardless of where things stand or who's around you today, I wanted you to have this reminder of what we had. Happy birthday. I hope it's a good one.
+                </p>
+                <button class="close-card-btn" onclick="closeCard()">Close Letter</button>
+            </div>
+        </div>
+
         <div class="footer-note">
-            <h2>I used to adore you, I guess.</h2>
+            <h2>I adore you so much, I guess.</h2>
             <p>Thanks for surviving all our chaotic moments together. I know you've got many things to do nowadays, and may be a shiny new favourite human occupying your time now, but your importance in my life is still ineffable. Happiest Birthday Once Again! 🎂✨</p>
         </div>
 
@@ -268,6 +365,15 @@
             // Hide terminal and show the actual scrapbook website
             document.getElementById('terminal-overlay').style.display = 'none';
             document.getElementById('mainContent').style.display = 'flex';
+        }
+
+        // DIGITAL CARD FUNCTIONS
+        function openCard() {
+            document.getElementById('cardModal').style.display = 'flex';
+        }
+
+        function closeCard() {
+            document.getElementById('cardModal').style.display = 'none';
         }
     </script>
 
